@@ -31,9 +31,8 @@ Jarvis is a  virtual assistant capable of conversation, following basic commands
   ***pip install SpeechRecognition***-> [SpeechRecognition](https://pypi.org/project/SpeechRecognition/)
   
  - **Usage** :
- 
-   > import speech_recognition as sr
-   > engine = pyttsx3.init('sapi5')
+ > import speech_recognition as sr
+ > engine = pyttsx3.init('sapi5')
    > voices = engine.getProperty('voices')
    > engine.setProperty('voice', voices[0].id)
    > Recognize speech input from the microphone
