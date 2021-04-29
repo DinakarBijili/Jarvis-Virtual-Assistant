@@ -5,12 +5,12 @@ Jarvis is a  virtual assistant capable of conversation, following basic commands
 
 # Project description
 
-## pyttsx3 
+## Pyttsx3 
 
-pyttsx3 is a text-to-speech conversion library in Python. Unlike alternative libraries, it works offline, and is compatible with both Python 2 and 3
+[^1]: pyttsx3 is a text-to-speech conversion library in Python. Unlike alternative libraries, it works offline, and is compatible with both Python 2 and 3
 
 ## Installation
-pip install pyttsx3
+pip install pyttsx3 ->
 [pyttsx3 Link](https://pypi.org/project/pyttsx3/)
 
 If you recieve errors such as No module named win32com.client, No module named win32, or No module named win32api, you will need to additionally install pypiwin32.
@@ -26,7 +26,8 @@ If you recieve errors such as No module named win32com.client, No module named w
   8 Library for performing speech recognition, with support for several engines and APIs, online and offline.
   
  ## Installation
-  pip install SpeechRecognition
+  pip install SpeechRecognition -> 
+  [SpeechRecognition](https://pypi.org/project/SpeechRecognition/)
   
  # Usage :
   import speech_recognition as sr
