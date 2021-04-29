@@ -1,6 +1,8 @@
 # Jarvis-Virtual-Assistant
 Jarvis is a  virtual assistant capable of conversation, following basic commands and used to automate your tasks 
 
+![851](https://user-images.githubusercontent.com/77189196/116514535-ca02eb00-a8e8-11eb-9942-eb87876be42d.jpg)
+
 ## Project description
 
 # pyttsx3 
@@ -33,7 +35,7 @@ If you recieve errors such as No module named win32com.client, No module named w
   Recognize speech input from the microphone
 
 
-![851](https://user-images.githubusercontent.com/77189196/116514535-ca02eb00-a8e8-11eb-9942-eb87876be42d.jpg)
+
 
 
 
