@@ -23,7 +23,7 @@ Jarvis is a  virtual assistant capable of conversation, following basic commands
   4. engine.runAndWait()
   
   
-## speech_recognition
+## Speech_Recognition
   8 Library for performing speech recognition, with support for several engines and APIs, online and offline.
   
 - **Installation**:
