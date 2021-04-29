@@ -32,11 +32,11 @@ Jarvis is a  virtual assistant capable of conversation, following basic commands
   
  - **Usage** :
  
- 1. import speech_recognition as sr
- 2. engine = pyttsx3.init('sapi5')
- 3. voices = engine.getProperty('voices')
- 4. engine.setProperty('voice', voices[0].id)
- 5. Recognize speech input from the microphone
+   > import speech_recognition as sr
+   > engine = pyttsx3.init('sapi5')
+   > voices = engine.getProperty('voices')
+   > engine.setProperty('voice', voices[0].id)
+   > Recognize speech input from the microphone
 
 
 
