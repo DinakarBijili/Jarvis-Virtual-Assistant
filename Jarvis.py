@@ -7,6 +7,8 @@ import os
 
 
 
+
+#Speak engine
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice',voices[0].id)
@@ -14,6 +16,8 @@ engine.setProperty('voice',voices[0].id)
 #Application Paths
 chrome_path = "https://www.google.com/search?q=chrome&oq=chro&aqs=chrome.1.69i65j0i433j0i20i263j69i57j69i60j5l3.8169j0j7&sourceid=chrome&ie=UTF-8"
 codePath = '"C:\\Users\\91810\\AppData\\Local\\Programs\Microsoft VS Code\\Code.exe"'
+spotifypath= "C:\\Users\\User\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Spotify.lnk"
+
 
 def speak(audio):
     engine.say(audio)
@@ -21,12 +25,17 @@ def speak(audio):
 
 def wishme():
     hour = int(datetime.datetime.now().hour)
+    strtime = datetime.datetime.now().strftime("%I:%M %p")
     if hour>=0 and hour<12:
-        speak("Good Morning !")
+        speak("Good Morning Sir! Now the time is ")
+        speak(strtime)
     elif hour>=12 and hour<18:
-        speak("Good Afternoon!")
+        speak("Good Afternoon Sir! Now the time is ")
+        speak(strtime)
     else:
-        speak("Good Evening !")
+        speak("Good Evening Sir! Now the time is !")
+        speak(strtime)
+        
     speak("I am Jarvis Sir. Please tell me how may I help you")
 
 """It takes microphone from user and returns string output"""
@@ -34,7 +43,7 @@ def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
-        r.pause_threshold = 0.8 # our Voice range
+        r.pause_threshold = 1 # our Voice range
         audio = r.listen(source)
     try:
         print("Recognizing....")
@@ -44,6 +53,7 @@ def takeCommand():
         print("Say that again Please...")
         return "None" 
     return query
+
 
 if __name__ == "__main__":
     wishme()
@@ -58,10 +68,10 @@ if __name__ == "__main__":
             print(results)
             speak(results)
 
-        elif "jarvis quit" in query:
-            quit(speak("Ok sir...Good Bye Have a Nice Day! "))
+        elif "quit" in query:
+            quit(speak("Ok sir...Good Night! Have a Nice Day! "))
 
-        elif 'jarvis open youtube' in query:
+        elif 'open youtube' in query:
             try:
                 speak("opening youtube")
                 webbrowser.get(chrome_path).open("youtube.com")
@@ -69,33 +79,45 @@ if __name__ == "__main__":
                 speak("opening youtube")
                 webbrowser.open("youtube.com")
         
-        elif 'jarvis open google' in query:
+        elif 'open google' in query:
             try:
-                speak("opening google")
-                webbrowser.get(chrome_path).open("google.com")
+                speak("sir , what i search on google")
+                cm = takeCommand().lower()
+                webbrowser.open(f"{cm}")
             except:
                 speak("opening google")
                 webbrowser.open("google.com")
 
 
-        elif 'jarvis open stackoverflow' in query:
+        elif 'open stackoverflow' in query:
             try:
                 speak("opening stackoverflow")
                 webbrowser.get(chrome_path).open("stackoverflow.com")
             except:
                 speak("opening stackoverflow")
                 webbrowser.open("stackoverflow.com")
+        elif 'open facebook' in query:
+            try:
+                speak("opening facebook")
+                webbrowser.get(chrome_path).open("facebook.com")
+            except:
+                speak("opening facebook")
+                webbrowser.open("facebook.com")
 
-        elif 'jarvis play music' in query:
-            music_dir = 'D:\\songs\\english\\Linkin Park'
-            songs = os.listdir(music_dir)
-            os.startfile(os.path.join(music_dir,songs[0]))
 
-        elif "jarvis whats the time" in query:
+        elif 'play music' in query:
+            try:
+                os.startfile(spotifypath)
+                speak('Playing Music!')
+            except:
+                speak("Sir Please Install Spotify First!")
+                webbrowser.open("https://www.spotify.com/us/")
+
+        elif "whats the time" in query:
             strtime = datetime.datetime.now().strftime("%H:%M:%S")
             speak("Sir the current time is",strtime )
 
-        elif "jarvis open vs code"  in query:
+        elif "open vs code"  in query:
             try:
                 os.startfile(codePath)
             except:
@@ -103,7 +125,8 @@ if __name__ == "__main__":
                 webbrowser.get(chrome_path).open("https://code.visualstudio.com//download")
 
         elif "who made you" in query:
-            speak("Dinakar IS The Creator of Me! ")
+            speak("Dinakar iS the Creator of Me! ")
 
 
-            
+        else:
+            speak("Iam not able to Find your Query! Please Tell again")
