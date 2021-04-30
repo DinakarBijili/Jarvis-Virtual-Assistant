@@ -4,7 +4,9 @@ import datetime
 import wikipedia
 import webbrowser
 import os
-
+import json
+import requests
+import pyjokes
 
 
 
@@ -17,12 +19,13 @@ engine.setProperty('voice',voices[0].id)
 chrome_path = "https://www.google.com/search?q=chrome&oq=chro&aqs=chrome.1.69i65j0i433j0i20i263j69i57j69i60j5l3.8169j0j7&sourceid=chrome&ie=UTF-8"
 codePath = '"C:\\Users\\91810\\AppData\\Local\\Programs\Microsoft VS Code\\Code.exe"'
 spotifypath= "C:\\Users\\User\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Spotify.lnk"
-
+News_api = "http://newsapi.org/v2/top-headlines?country=in&apiKey=83cf9663b4424805a128ef57ba3dfdec"
 
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 
+                
 def wishme():
     hour = int(datetime.datetime.now().hour)
     strtime = datetime.datetime.now().strftime("%I:%M %p")
@@ -113,6 +116,24 @@ if __name__ == "__main__":
                 speak("Sir Please Install Spotify First!")
                 webbrowser.open("https://www.spotify.com/us/")
 
+
+        elif 'Todays News' in query:
+            speak("Todays Top Headlines....Lets Begin")
+            news = requests.get(News_api).text
+            news_dict = json.loads(news)
+                
+            arts = news_dict['articles']
+            for articles in arts:
+                speak(articles['title']) 
+                print( articles['title'],'\n')
+                print("Click this Link to read =>",articles['url'],'\n') 
+                print("IMAGE  => ", articles['urlToImage'],'\n')
+
+                speak("Looking to the next news...Listen Carefully")
+            speak("Thanks for listening....")
+            if "ok stop" in query:
+                quit()
+
         elif "whats the time" in query:
             strtime = datetime.datetime.now().strftime("%H:%M:%S")
             speak("Sir the current time is",strtime )
@@ -127,6 +148,9 @@ if __name__ == "__main__":
         elif "who made you" in query:
             speak("Dinakar iS the Creator of Me! ")
 
+        elif "Tell me a joke" in query:
+            MY_joke = pyjokes.get_joke(language="en",category="neutral")
+            speak(MY_joke)
 
         else:
             speak("Iam not able to Find your Query! Please Tell again")
