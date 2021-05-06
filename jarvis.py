@@ -1,16 +1,15 @@
-from math import e
-from urllib.request import urlopen
 import pyttsx3 #pip install pyttsx3
 import speech_recognition as sr #pip install speachRecognition
 import datetime
 import wikipedia #pip install wikipedia
-import webbrowser 
+import webbrowser # pip install 
 import os 
 import json 
+from urllib.request import urlopen
 import requests #pip install request
 import pyjokes #pip install pyjokes
 import subprocess
-import wolframalpha
+import wolframalpha #pip install wolframaplha
 
 
 #Speak engine
