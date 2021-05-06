@@ -43,7 +43,7 @@ Wolframalpha:- It is used to compute expert-level answers using Wolfram’s algo
    ***pip install Wolframalpha***-> [Wolframalpha](https://pypi.org/project/wolframalpha/)
 
  - **Getting API Id** :
-  1. Create a account at Wolfram alpha. The account can be created at the official website.
+  1. Create a account at Wolfram alpha. The account can be created at the [official website](https://account.wolfram.com/auth/create)
   2. After signing up, sign in using your Wolfram ID.
   3. Now you will see the homepage of the website. Head to the section in the top right corner where you see your email. In the drop down menu, select the My Apps (API) option.
   4. Click the Get an AppID button to get the id.
