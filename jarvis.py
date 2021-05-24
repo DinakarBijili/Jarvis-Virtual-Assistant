@@ -10,7 +10,9 @@ import requests #pip install request
 import pyjokes #pip install pyjokes
 import subprocess
 import wolframalpha #pip install wolframaplha
+import warnings
 
+warnings.filterwarnings('ignore') 
 
 #Speak engine
 engine = pyttsx3.init('sapi5')
@@ -106,14 +108,6 @@ if __name__ == "__main__":
                 webbrowser.open(query)
             except:
                 webbrowser.get(chrome_path).open(query)
-
-        elif 'search in youtube' in query or 'play in youtube' in query:
-            try:
-                query = query.replace("search in youtube","") 
-                query = query.replace("play in youtube","") 
-                webbrowser.get("https://www.youtube.com/").open(query)
-            except:
-                webbrowser.open(query)
 
         elif 'wikipedia'in query:
             speak('Searching Wikipedia...')
