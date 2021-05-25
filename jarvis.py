@@ -2,17 +2,21 @@ import pyttsx3 #pip install pyttsx3
 import speech_recognition as sr #pip install speachRecognition
 import datetime
 import wikipedia #pip install wikipedia
-import webbrowser # pip install 
+import webbrowser  
 import os 
 import json 
 from urllib.request import urlopen
 import requests #pip install request
 import pyjokes #pip install pyjokes
 import subprocess
-import wolframalpha #pip install wolframaplha
+import wolframalpha # pip install wolframaplha
 import warnings
+import pywhatkit
+import randfacts
 
-warnings.filterwarnings('ignore') 
+
+warnings.filterwarnings('ignore')
+
 
 #Speak engine
 engine = pyttsx3.init('sapi5')
@@ -50,12 +54,12 @@ def wishme():
 def username():
     speak('What should i call you sir')
     name = takeCommand()
-    speak("Hello Mister")
+    speak("Hello")
     speak(name)
 
-    print("#####################")
+    print("---------------------")
     print("Welcome ",name)
-    print("#####################")
+    print("---------------------")
     speak("How can i Help you, Sir")
 
 """It takes microphone from user and returns string output"""
@@ -89,6 +93,12 @@ if __name__ == "__main__":
         if 'jarvis' in query:
             wishme()
             speak("hi am Jarvis Sir Speed 1 terabytz memory 1 zetabytes.")
+        
+        elif 'Dinakar' in query:
+            speak("hi master How are you")
+
+        elif 'good' in query or 'fine' in query or "iam good" in query:
+            speak("Good to here that. Have a great day sir")
             
         elif 'change my name to' in query:
             query = query.replace('change my name to',"")
@@ -101,13 +111,17 @@ if __name__ == "__main__":
             speak("Thanks for giving me your valuable time. Have a great Day")
             exit()
 
-        elif 'search' in query or 'play' in query:
+        elif 'search' in query:
             try:
-                query = query.replace('search',"")
-                query = query.replace('play',"")
+                query = query.replace("search","")
                 webbrowser.open(query)
             except:
                 webbrowser.get(chrome_path).open(query)
+
+        elif 'play' in query:
+            song = query.replace('play', '')
+            speak('playing song',song)
+            pywhatkit.playonyt(song)
 
         elif 'wikipedia'in query:
             speak('Searching Wikipedia...')
@@ -116,6 +130,7 @@ if __name__ == "__main__":
             speak("According to Wikipedia")
             print(results)
             speak(results)
+
         elif "open wikipedia" in query:
             try:
                 webbrowser.open("https://www.wikipedia.org/")
@@ -131,10 +146,11 @@ if __name__ == "__main__":
         elif 'open youtube' in query:
             try:
                 speak("opening youtube")
-                webbrowser.get(chrome_path).open("youtube.com")
+                webbrowser.open("youtube.com")
             except:
                 speak("opening youtube")
-                webbrowser.open("youtube.com")
+                webbrowser.get(chrome_path).open("youtube.com")
+                
         
         elif 'open google' in query:
             try:
@@ -153,6 +169,7 @@ if __name__ == "__main__":
             except:
                 speak("opening stackoverflow")
                 webbrowser.open("stackoverflow.com")
+
         elif 'open facebook' in query:
             try:
                 speak("opening facebook")
@@ -168,18 +185,18 @@ if __name__ == "__main__":
             print(songs)
             random = os.startfile(os.path.join(music_dir, songs[1]))
 
-
-        elif 'news' in query or 'todays news' in query:
-            speak("Todays Top Headlines....Lets Begin")
+        elif 'news' in query:
             try:
-                jsonObj = urlopen(News_api)
-                news = requests.get(News_api).text
-                news_dict = json.loads(news)
+                jsonObj = urlopen('''https://newsapi.org / v1 / articles?source = the-times-of-india&sortBy = top&apiKey =\\times of India Api key\\''')
+                news_dict = json.loads(jsonObj)
+
+                speak("Todays Top Headlines....Lets Begin")
+                print("""=========== TIMES OF INDIA ===========""" + '\n')
                 
                 arts = news_dict['articles']
                 for articles in arts:
                     print( articles['title']+'\n')
-                    print(articles['discription'] + '\n')
+                    print(articles['description'] + '\n')
                     speak(articles['title']) 
                     
                     print("TO read article =>",articles['url']+'\n') 
@@ -191,6 +208,11 @@ if __name__ == "__main__":
                 if "ok stop" in query:
                     break
                 print(str(e))
+
+        elif "Tell me facts" in query:
+            x = randfacts.getfact()
+            print(x)
+            speak(x)
             
         elif "whats the time" in query:
             strtime = datetime.datetime.now().strftime("%H:%M:%S")
@@ -198,22 +220,23 @@ if __name__ == "__main__":
 
         elif "open vs code"  in query:
             try:
+                speak("opening vs code")
                 os.startfile(codePath)
             except:
                 speak("Please Install VScode First!")
                 webbrowser.get(chrome_path).open("https://code.visualstudio.com//download")
 
         elif "who made you" in query:
-            speak("I have been Created by Dinakar Bijili  ")
+            speak("I have been Created by Dinakar Bijili")
         
         elif "Where is" in query:
             try:
                 query = query.replace("where is","")
                 location = query
                 speak(location)
-                webbrowser.open("https://www.google.nl/maps/place" + location + "")
+                webbrowser.open("https://www.google.nl / maps / place/" + location + "")
             except:
-                webbrowser.get(chrome_path).open("https://www.google.nl/maps/place" + location + "")
+                webbrowser.get(chrome_path).open("https://www.google.nl/maps/place")
     
         elif "Tell me a joke" in query:
             speak(pyjokes.get_joke())
@@ -221,6 +244,7 @@ if __name__ == "__main__":
         elif 'shutdown system' in query:
             speak("Hold on a Sec ! Your system on its way to shutdown")
             subprocess.call('shutdown / p /f')
+
         elif 'restart system' in query:
             subprocess.call(["shutdown", "/r"])
 
@@ -252,8 +276,5 @@ if __name__ == "__main__":
             try:
                 print(next(res.result).text)
                 speak(next(res.result).text)
-            except:
+            except StopIteration:
                 print("can't able to find your query")
-
-        else:
-            speak("Iam not able to Find your Query! Please Tell again")
