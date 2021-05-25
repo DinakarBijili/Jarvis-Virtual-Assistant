@@ -178,7 +178,7 @@ if __name__ == "__main__":
                 webbrowser.open("facebook.com")
 
         elif 'play music' in query or 'play songs' in query:
-            speak("Here to go with music")
+            speak("Here we go with music")
             music_dir = "D:\\songs\\english\\Linkin Park"
             songs = os.listdir(music_dir)
             print(songs)
