@@ -77,7 +77,7 @@ def takeCommand():
         return "None" 
     return query
 
-# Main function starts here now we will all the functions
+# Main function starts here now we will call the functions
 if __name__ == "__main__":
     clear = lambda: os.system('cls')
     # This function clear any command before executing of this python file
@@ -182,7 +182,7 @@ if __name__ == "__main__":
             music_dir = "D:\\songs\\english\\Linkin Park"
             songs = os.listdir(music_dir)
             print(songs)
-            random = os.startfile(os.path.join(music_dir, songs[1]))
+            random = os.startfile(os.path.join(music_dir, songs[0]))
 
         elif 'news' in query:
             try:
