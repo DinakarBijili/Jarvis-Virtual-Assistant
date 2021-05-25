@@ -11,12 +11,11 @@ import pyjokes #pip install pyjokes
 import subprocess
 import wolframalpha # pip install wolframaplha
 import warnings
-import pywhatkit
-import randfacts
+import pywhatkit #pip install pwhatkit
+import randfacts # pip install randfacts
 
 
 warnings.filterwarnings('ignore')
-
 
 #Speak engine
 engine = pyttsx3.init('sapi5')
