@@ -108,7 +108,7 @@ if __name__ == "__main__":
             name = query
 
         elif 'What is your name' in query or "who are you" in query:
-            speak("my name is Jarvis sir speed 1 terabytz memory 1 zetabytes")
+            speak("my name is Jarvis speed 1 terabytz memory 1 zetabytes")
 
         elif 'exit' in query or 'quit' in query:
             speak("Thanks for giving me your valuable time. Have a great Day")
@@ -158,7 +158,7 @@ if __name__ == "__main__":
         
         elif 'open google' in query:
             try:
-                speak("sir , what i search on google")
+                speak("what i search on google")
                 cm = takeCommand().lower()
                 webbrowser.open(f"{cm}")
             except:
