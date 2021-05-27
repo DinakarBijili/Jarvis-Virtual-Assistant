@@ -1,4 +1,5 @@
-import pyttsx3 #pip install pyttsx3
+import pyttsx3
+import randfacts #pip install pyttsx3
 import speech_recognition as sr #pip install speachRecognition
 import datetime
 import wikipedia #pip install wikipedia
@@ -6,7 +7,6 @@ import webbrowser
 import os 
 import json 
 from urllib.request import urlopen
-import requests #pip install request
 import pyjokes #pip install pyjokes
 import subprocess
 import wolframalpha # pip install wolframaplha
@@ -29,7 +29,7 @@ chrome_path = "https://www.google.com/search?q=chrome&oq=chro&aqs=chrome.1.69i65
 codePath = '"C:\\Users\\91810\\AppData\\Local\\Programs\Microsoft VS Code\\Code.exe"'
 songs = "D:\\songs\\english\\Linkin Park"
 News_api = "http://newsapi.org/v2/top-headlines?country=in&apiKey=83cf9663b4424805a128ef57ba3dfdec"
-wolframalpha = "WJWQY2-H954L7Y73W"
+wolframalphaAPI = "WJWQY2-H954L7Y73W"
 
 def speak(audio):
     engine.say(audio)
@@ -53,6 +53,7 @@ def wishme():
 def username():
     speak('What should i call you')
     name = takeCommand()
+    name = input("Name: ").capitalize()
     speak("Hello")
     speak(name)
 
@@ -88,7 +89,8 @@ if __name__ == "__main__":
 
     while True:
         query = takeCommand().lower()
-
+        query = input("You can also Enter your query here: ").lower()
+        
         if 'jarvis' in query:
             speak("hi am Jarvis 1 point o. How can i help you")
         elif 'hello' in query or 'hi' in query:
@@ -97,7 +99,7 @@ if __name__ == "__main__":
             speak("how are you") 
             print(name) 
         
-        elif 'Dinakar' in query:
+        elif 'dinakar' in query:
             speak("hello master. How are you")
 
         elif 'good' in query or 'fine' in query or "iam good" in query:
@@ -107,7 +109,7 @@ if __name__ == "__main__":
             query = query.replace('change my name to',"")
             name = query
 
-        elif 'What is your name' in query or "who are you" in query:
+        elif 'what is your name' in query or "who are you" in query:
             speak("my name is Jarvis speed 1 terabytz memory 1 zetabytes")
 
         elif 'exit' in query or 'quit' in query or 'bye' in query:
@@ -117,30 +119,29 @@ if __name__ == "__main__":
         elif 'search' in query:
             try:
                 query = query.replace('search','')
-                webbrowser.open(query)
-            except:
                 webbrowser.get(chrome_path).open(query)
+            except:
+                webbrowser.open(query)
+                
 
         elif 'play' in query or 'find' in query:
             song = query.replace('play', '')
-            speak('playing song')
+            speak('finding your query')
             speak(song) 
             pywhatkit.playonyt(song)
 
         elif 'wikipedia'in query:
             speak('Searching Wikipedia...')
             query =query.replace("wikipedia","")
-            results = wikipedia.summary(query, sentences=2)
-            speak("According to Wikipedia")
-            print(results)
-            speak(results)
-
-        elif "open wikipedia" in query:
             try:
-                webbrowser.open("https://www.wikipedia.org/")
+                speak("According to Wikipedia")
+                results = wikipedia.summary(query, sentences=2)   
+                print(results)
+                speak(results)
             except:
-                webbrowser.get(chrome_path).open("https://www.wikipedia.org/")
- 
+                webbrowser.open(query)
+                
+
         elif "who i am" in query:
             speak('if you are talking then definatily your human ')
 
@@ -150,20 +151,22 @@ if __name__ == "__main__":
         elif 'open youtube' in query:
             try:
                 speak("opening youtube")
-                webbrowser.open("youtube.com")
+                webbrowser.get(chrome_path).open("youtube.com")
             except:
                 speak("opening youtube")
-                webbrowser.get(chrome_path).open("youtube.com")
+                webbrowser.open("youtube.com")
+                
                 
         
         elif 'open google' in query:
             try:
-                speak("what i search on google")
+                speak("what should i search on google")
                 cm = takeCommand().lower()
+                cm = input("\n You can also Search your query here: ").lower()
                 webbrowser.open(f"{cm}")
             except:
                 speak("opening google")
-                webbrowser.open("google.com")
+                webbrowser.get(chrome_path).open("google.com")
 
 
         elif 'open stackoverflow' in query:
@@ -182,45 +185,45 @@ if __name__ == "__main__":
                 speak("opening facebook")
                 webbrowser.open("facebook.com")
 
-        elif 'play music' in query or 'play songs' in query:
+        elif 'music' in query or 'songs' in query:
             speak("Here we go with music")
             music_dir = "D:\\songs\\english\\Linkin Park"
             songs = os.listdir(music_dir)
-            print(songs)
-            random = os.startfile(os.path.join(music_dir, songs[0]))
+            random = os.startfile(os.path.join(music_dir, songs[1]))
 
         elif 'news' in query:
             try:
-                jsonObj = urlopen('''https://newsapi.org / v1 / articles?source = the-times-of-india&sortBy = top&apiKey =\\times of India Api key\\''')
-                news_dict = json.loads(jsonObj)
-
-                speak("Todays Top Headlines....Lets Begin")
-                print("""=========== TIMES OF INDIA ===========""" + '\n')
-                
-                arts = news_dict['articles']
-                for articles in arts:
-                    print( articles['title']+'\n')
-                    print(articles['description'] + '\n')
-                    speak(articles['title']) 
+                jsonObj = urlopen("https://newsapi.org/v2/top-headlines?country=in&apiKey=83cf9663b4424805a128ef57ba3dfdec")
+                data = json.load(jsonObj)
+                i = 1
+                 
+                speak('here are some todays top headlines..lets begin')
+                print('''=============== NEWS OF INDIA ============''','\n')
+                 
+                for article in data['articles']:
                     
-                    print("TO read article =>",articles['url']+'\n') 
-                    print("Click to get IMAGE  => ", articles['urlToImage']+'\n')
-
+                    print(str(i) ,'. ' , article['title'] + '\n')
+                    print("description:- ",article['description'] , '\n')
+                    print("Read news:- ",article['url']+'\n')
+                    speak(article['title'])
                     speak("Looking to the next news...Listen Carefully")
+                    i += 1
                 speak("Thanks for listening....")
             except Exception as e:
                 if "ok stop" in query:
-                    break
+                    break     
                 print(str(e))
 
-        elif "Tell me facts" in query:
-            x = randfacts.getfact()
+        elif "tell me facts" in query or "facts" in query:
+            x = randfacts.getFact()
             print(x)
             speak(x)
+
             
-        elif "whats the time" in query:
-            strtime = datetime.datetime.now().strftime("%H:%M:%S")
-            speak("Sir the current time is",strtime )
+        elif "whats the time" in query or "time" in query:
+            strtime = datetime.datetime.now().strftime("%H:%M:%S:%p")
+            speak("Sir the current time is")
+            speak(strtime)
 
         elif "open vs code"  in query:
             try:
@@ -230,24 +233,34 @@ if __name__ == "__main__":
                 speak("Please Install VScode First!")
                 webbrowser.get(chrome_path).open("https://code.visualstudio.com//download")
 
-        elif "who made you" in query:
-            speak("I have been Created by Dinakar Bijili")
+        elif "who made you" in query or "who created you" in query:
+            speak("I have been Created by B.Dinakar")
         
-        elif "Where is" in query:
+        elif "where is" in query:
             try:
                 query = query.replace("where is","")
                 location = query
+                speak("searching your location")
                 speak(location)
-                webbrowser.open("https://www.google.nl / maps / place/" + location + "")
+                webbrowser.open("https://www.google.nl/maps/place/"+ location+"")
             except:
                 webbrowser.get(chrome_path).open("https://www.google.nl/maps/place")
     
-        elif "joke" in query or "Tell me a joke" in query:
-            speak(pyjokes.get_joke())
+        elif "joke" in query or "tell me a joke" in query:
+            try:
+                speak(pyjokes.get_joke())
+            except:
+                client = wolframalpha.Client(wolframalphaAPI)
+                res = client.query(query)             
+                try:
+                    print (next(res.results).text)
+                    speak (next(res.results).text)
+                except StopIteration:
+                    print ("No results")
 
         elif 'shutdown system' in query:
             speak("Hold on a Sec ! Your system on its way to shutdown")
-            subprocess.call('shutdown / p /f')
+            subprocess.call('shutdown/p/f')
 
         elif 'restart system' in query:
             subprocess.call(["shutdown", "/r"])
@@ -255,11 +268,13 @@ if __name__ == "__main__":
         elif "write a note" in query:
             speak("What should i write, Sir")
             note = takeCommand()
+            note = input("Note you can also write: ")
             file = open("jarvis.txt",'w')
             speak("sir, should i include date and time")
             ans = takeCommand()
+            ans = str(input())
             if 'yes' in ans or 'sure' in ans:
-                strTime = datetime.datetime.now().strftime("% I:% M% S %p")
+                strTime = datetime.datetime.now().strftime("%I:%M:%S:%p")
                 file.write(strTime)
                 file.write(" :- ")
                 file.write(note)
@@ -270,20 +285,49 @@ if __name__ == "__main__":
             file = open("jarvis.txt","r")
             print(file.read())
             speak(file.read(6))
-            
-        elif "stop" in query:
-            break
+        
         
         elif "what is" in query or "who is" in query:
-            client = wolframalpha.Client(wolframalpha)
+            client = wolframalpha.Client(wolframalphaAPI)
+            res = client.query(query)
+            try:
+                print (next(res.results).text)
+                speak (next(res.results).text)
+            except:
+                print ("No results")
+
+        elif "temperature" in query or "todays temperature" in query:
+            speak("Please tell me the name of State: ")
+            query =  takeCommand()
+            client = wolframalpha.Client(wolframalphaAPI)
             res = client.query(query)
             try:
                 print(next(res.result).text)
                 speak(next(res.result).text)
-            except StopIteration:
+            except:
                 print("can't able to find your query")
+
+        elif "calculate" in query:
+            speak("What you want to calculate")
+            query = takeCommand()
+            query = input()
+            client = wolframalpha.Client(wolframalphaAPI)
+            res = client.query(query)
+            try:
+                print (next(res.results).text)
+                speak (next(res.results).text)
+            except:
+                print ("I can only calculate mathematical problems")
+
+        elif "thanks" in query:
+            speak("its my pleasure.")
+
+        elif "stop" in query:
+            break
+
         else:
-           speak("indeed") 
+            query = query.replace(" "," ")
+            speak("indeed") 
         
          
       
