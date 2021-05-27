@@ -60,7 +60,7 @@ def username():
     print("---------------------")
     print("Welcome ",name)
     print("---------------------")
-    speak("How can i Help you, Sir")
+    speak("How can i Help you.")
 
 """It takes microphone from user and returns string output"""
 def takeCommand():  
@@ -161,7 +161,7 @@ if __name__ == "__main__":
         elif 'open google' in query:
             try:
                 speak("what should i search on google")
-                cm = takeCommand().lower()
+                cm = takeCommand()
                 cm = input("\n You can also Search your query here: ").lower()
                 webbrowser.open(f"{cm}")
             except:
@@ -197,7 +197,7 @@ if __name__ == "__main__":
                 data = json.load(jsonObj)
                 i = 1
                  
-                speak('here are some todays top headlines..lets begin')
+                speak('here are some top headlines..lets begin')
                 print('''=============== NEWS OF INDIA ============''','\n')
                  
                 for article in data['articles']:
