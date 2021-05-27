@@ -48,10 +48,10 @@ def wishme():
         speak("Good Evening Sir! Now the time is !")
         speak(strtime)
         
-    speak("hi am Jarvis Sir Speed 1 terabytz memory 1 zetabytes.")
+    speak("hello iam Jarvis 1 point o ")
 
 def username():
-    speak('What should i call you sir')
+    speak('What should i call you')
     name = takeCommand()
     speak("Hello")
     speak(name)
@@ -90,14 +90,18 @@ if __name__ == "__main__":
         query = takeCommand().lower()
 
         if 'jarvis' in query:
-            wishme()
-            speak("hi am Jarvis Sir Speed 1 terabytz memory 1 zetabytes.")
+            speak("hi am Jarvis 1 point o. How can i help you")
+        elif 'hello' in query or 'hi' in query:
+            speak("Hello") 
+            speak(name) 
+            speak("how are you") 
+            print(name) 
         
         elif 'Dinakar' in query:
-            speak("hi master How are you")
+            speak("hello master. How are you")
 
         elif 'good' in query or 'fine' in query or "iam good" in query:
-            speak("Good to here that. Have a great day sir")
+            speak("Good to here that. Have a great day.")
             
         elif 'change my name to' in query:
             query = query.replace('change my name to',"")
@@ -112,7 +116,7 @@ if __name__ == "__main__":
 
         elif 'search' in query:
             try:
-                query = query.replace("search","")
+                query = query.replace('search','')
                 webbrowser.open(query)
             except:
                 webbrowser.get(chrome_path).open(query)
@@ -237,7 +241,7 @@ if __name__ == "__main__":
             except:
                 webbrowser.get(chrome_path).open("https://www.google.nl/maps/place")
     
-        elif "Tell me a joke" in query:
+        elif "joke" in query or "Tell me a joke" in query:
             speak(pyjokes.get_joke())
 
         elif 'shutdown system' in query:
@@ -271,7 +275,7 @@ if __name__ == "__main__":
         
         elif "what is" in query or "who is" in query:
             client = wolframalpha.Client(wolframalpha)
-            res = clear.query(query)
+            res = client.query(query)
             try:
                 print(next(res.result).text)
                 speak(next(res.result).text)
