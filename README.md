@@ -1,9 +1,10 @@
 # Python-AI-Virtual-Assistant
 Jarvis is a  virtual assistant capable of conversation, following basic commands and used to automate your tasks 
 
-
-.. image:: http://pepy.tech/badge/pygorithm
-
+.. image:: https://img.shields.io/badge/Python-3.6-brightgreen.svg
+   :target: https://github.com/DinakarBijili
+   :alt: Python 3.9.0
+   
 ![851](https://user-images.githubusercontent.com/77189196/116514535-ca02eb00-a8e8-11eb-9942-eb87876be42d.jpg)
 
 # Project description
