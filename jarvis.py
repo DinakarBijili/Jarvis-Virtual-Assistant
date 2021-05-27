@@ -123,7 +123,8 @@ if __name__ == "__main__":
 
         elif 'play' in query:
             song = query.replace('play', '')
-            speak('playing song',song)
+            speak('playing song')
+            speak(song) 
             pywhatkit.playonyt(song)
 
         elif 'wikipedia'in query:
@@ -281,5 +282,6 @@ if __name__ == "__main__":
                 speak(next(res.result).text)
             except StopIteration:
                 print("can't able to find your query")
+        
          
       
