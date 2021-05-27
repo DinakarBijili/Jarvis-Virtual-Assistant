@@ -282,6 +282,8 @@ if __name__ == "__main__":
                 speak(next(res.result).text)
             except StopIteration:
                 print("can't able to find your query")
+        else:
+           speak("indeed") 
         
          
       
