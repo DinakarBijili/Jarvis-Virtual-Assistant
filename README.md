@@ -40,17 +40,17 @@ Jarvis is a  virtual assistant capable of conversation, following basic commands
 
 ## Wolframalpha
 Wolframalpha:- It is used to compute expert-level answers using Wolfram’s algorithms, knowledgebase and AI technology. To install this module type the below command in the terminal.
-- **Installation**:
-  
-`pip install Wolframalpha`
+- **Installation**: 
+
+  `pip install Wolframalpha`
 
  - **Getting API Id** :
-  * Create a account at Wolfram alpha. The account can be created at the [official website](https://account.wolfram.com/auth/create)
-  * After signing up, sign in using your Wolfram ID.
-  * Now you will see the homepage of the website. Head to the section in the top right corner where you see your email. In the drop down menu, select the My Apps (API) option.
-  * Click the Get an AppID button to get the id.
-  * In the next dialog box, give the app a suitable name and description.
-  * Note down the APPID that appears in the next dialog box. This app id will be specific to the application.
+  1. Create a account at Wolfram alpha. The account can be created at the [official website](https://account.wolfram.com/auth/create)
+  2. After signing up, sign in using your Wolfram ID.
+  3. Now you will see the homepage of the website. Head to the section in the top right corner where you see your email. In the drop down menu, select the My Apps (API) option.
+  4. Click the Get an AppID button to get the id.
+  5. In the next dialog box, give the app a suitable name and description.
+  6. Note down the APPID that appears in the next dialog box. This app id will be specific to the application.
   
   ## Subprocess
   - Subprocess:- This module is used for getting system subprocess details which are used in various commands i.e Shutdown, Sleep, etc. This module comes buit-in with Python. 
@@ -60,17 +60,18 @@ Wolframalpha:- It is used to compute expert-level answers using Wolfram’s algo
   
   ## pyjokes
   - Pyjokes:- Pyjokes is used for collection Python Jokes over the Internet. To install this module type the below command in the terminal.
-  **Installation**
-  `pip install pyjokes`
+ - **Installation**:
+
+   `pip install pyjokes`
   
   ## Datetime
   - Datetime:- Date and Time is used to showing Date and Time. This module comes built-int with Python. 
   
   ## Requests 
   -  Requests: Requests is used for making GET and POST requests. To install this module type the below command in the terminal.
-  **Installation**
+ - **Installation**:
 
-  `pip install requests`
+   `pip install requests`
   
   
   
