@@ -69,6 +69,7 @@ Wolframalpha:- It is used to compute expert-level answers using Wolfram’s algo
   ## Requests 
   -  Requests: Requests is used for making GET and POST requests. To install this module type the below command in the terminal.
   **Installation**
+
   `pip install requests`
   
   
