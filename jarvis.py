@@ -297,7 +297,7 @@ if __name__ == "__main__":
                 print ("No results")
 
         elif "temperature" in query or "todays temperature" in query:
-            speak("Please tell me the name of State: ")
+            speak("which place you want to know: ")
             query =  takeCommand()
             client = wolframalpha.Client(wolframalphaAPI)
             res = client.query(query)
