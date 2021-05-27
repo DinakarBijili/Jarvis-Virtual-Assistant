@@ -121,7 +121,7 @@ if __name__ == "__main__":
             except:
                 webbrowser.get(chrome_path).open(query)
 
-        elif 'play' in query:
+        elif 'play' in query or 'find' in query:
             song = query.replace('play', '')
             speak('playing song')
             speak(song) 
