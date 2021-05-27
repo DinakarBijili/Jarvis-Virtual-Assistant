@@ -1,4 +1,4 @@
-Python-AI-Virtual-Assistant 🧠
+Python-AI-Virtual-Assistant 🧠 [![](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 ============================
 
 ![](https://img.shields.io/badge/Python-3.9.0-brightgreen.svg)
@@ -12,6 +12,7 @@ Python-AI-Virtual-Assistant 🧠
 * Tells latest news from Times of India. 
 * Finds any Location. 
 * Tells jokes and facts.
+* it can Search on Wikipedia via voice command
 * And more... 
 
 
