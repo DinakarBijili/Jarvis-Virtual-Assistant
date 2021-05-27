@@ -1,11 +1,9 @@
-# Python-AI-Virtual-Assistant
-Jarvis is a  virtual assistant capable of conversation, following basic commands and used to automate your tasks 
+Python-AI-Virtual-Assistant
+============================
 
-.. image:: https://img.shields.io/badge/Python-3.6-brightgreen.svg
-   :target: https://github.com/DinakarBijili
-   :alt: Python 3.9.0
-   
-![851](https://user-images.githubusercontent.com/77189196/116514535-ca02eb00-a8e8-11eb-9942-eb87876be42d.jpg)
+![](https://img.shields.io/badge/Python-3.9.0-brightgreen.svg)
+
+Jarvis is a  virtual assistant capable of conversation, following basic commands and used to automate your tasks 
 
 # Project description
 
@@ -13,8 +11,7 @@ Jarvis is a  virtual assistant capable of conversation, following basic commands
 
 - pyttsx3 is a text-to-speech conversion library in Python. Unlike alternative libraries, it works offline, and is compatible with both Python 2 and 3
 
-- **Installation** :
-
+- **Installation** :   
    ***pip install pyttsx3*** -> [pyttsx3](https://pypi.org/project/pyttsx3/)
 
    If you recieve errors such as No module named win32com.client, No module named ***win32***, or No module named win32api, you will need to additionally install ***pypiwin32***.
