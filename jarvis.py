@@ -39,13 +39,13 @@ def wishme():
     hour = int(datetime.datetime.now().hour)
     strtime = datetime.datetime.now().strftime("%I:%M %p")
     if hour>=0 and hour<12:
-        speak("Good Morning Sir! Now the time is ")
+        speak("Good Morning! Now the time is ")
         speak(strtime)
     elif hour>=12 and hour<18:
         speak("Good Afternoon Sir! Now the time is ")
         speak(strtime)
     else:
-        speak("Good Evening Sir! Now the time is !")
+        speak("Good Evening! Now the time is !")
         speak(strtime)
         
     speak("hello iam Jarvis 1 point o ")
