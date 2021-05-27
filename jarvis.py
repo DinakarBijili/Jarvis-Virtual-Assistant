@@ -110,7 +110,7 @@ if __name__ == "__main__":
         elif 'What is your name' in query or "who are you" in query:
             speak("my name is Jarvis speed 1 terabytz memory 1 zetabytes")
 
-        elif 'exit' in query or 'quit' in query:
+        elif 'exit' in query or 'quit' in query or 'bye' in query:
             speak("Thanks for giving me your valuable time. Have a great Day")
             exit()
 
