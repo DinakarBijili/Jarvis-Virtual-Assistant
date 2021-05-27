@@ -1,4 +1,4 @@
-Python-AI-Virtual-Assistant
+Python-AI-Virtual-Assistant 🧠
 ============================
 
 ![](https://img.shields.io/badge/Python-3.9.0-brightgreen.svg)
