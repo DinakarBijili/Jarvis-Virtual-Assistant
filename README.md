@@ -15,6 +15,7 @@ Python-AI-Virtual-Assistant 🧠 [![](https://forthebadge.com/images/badges/made
 * Tells jokes and facts.
 * it can Search on Wikipedia via voice command.
 * Arithmetic Calculations
+* shows current calender
 * And more... 
 
  ![skills](https://user-images.githubusercontent.com/77189196/119957903-2167aa00-bfc0-11eb-987f-a406a18ea04c.png)
