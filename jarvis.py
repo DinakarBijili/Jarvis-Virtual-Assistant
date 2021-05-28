@@ -42,7 +42,7 @@ def wishme():
         speak("Good Morning! Now the time is ")
         speak(strtime)
     elif hour>=12 and hour<18:
-        speak("Good Afternoon Sir! Now the time is ")
+        speak("Good Afternoon! Now the time is ")
         speak(strtime)
     else:
         speak("Good Evening! Now the time is !")
@@ -53,14 +53,13 @@ def wishme():
 def username():
     speak('What should i call you')
     name = takeCommand()
-    name = input("Name: ").capitalize()
-    speak("Hello")
+    speak("hi..")
     speak(name)
 
-    print("---------------------")
-    print("Welcome ",name)
-    print("---------------------")
-    speak("How can i Help you.")
+    print("\t=================================")
+    print("\t\t Welcome ",name)
+    print("\t=================================")
+    speak("How can i Help you")
 
 """It takes microphone from user and returns string output"""
 def takeCommand():  
@@ -89,17 +88,17 @@ if __name__ == "__main__":
 
     while True:
         query = takeCommand().lower()
-        query = input("You can also Enter your query here: ").lower()
         
-        if 'jarvis' in query:
+        if 'jarvis' in query or "hi jarvis" in query:
             speak("hi am Jarvis 1 point o. How can i help you")
+
         elif 'hello' in query or 'hi' in query:
-            speak("Hello") 
-            speak(name) 
-            speak("how are you") 
-            print(name) 
-        
-        elif 'dinakar' in query:
+            speak("Hello! how are you") 
+
+        elif "how are you" in query:
+            speak("I am fine, Thank you")
+
+        elif 'dinakar here' in query:
             speak("hello master. How are you")
 
         elif 'good' in query or 'fine' in query or "iam good" in query:
@@ -152,18 +151,18 @@ if __name__ == "__main__":
             try:
                 speak("opening youtube")
                 webbrowser.get(chrome_path).open("youtube.com")
+                break
             except:
                 speak("opening youtube")
                 webbrowser.open("youtube.com")
                 
-                
-        
         elif 'open google' in query:
             try:
                 speak("what should i search on google")
-                cm = takeCommand()
-                cm = input("\n You can also Search your query here: ").lower()
+                cm = takeCommand().lower()
+                cm = input("\nYou can also Search your query here: ").lower()
                 webbrowser.open(f"{cm}")
+                break
             except:
                 speak("opening google")
                 webbrowser.get(chrome_path).open("google.com")
@@ -173,6 +172,7 @@ if __name__ == "__main__":
             try:
                 speak("opening stackoverflow")
                 webbrowser.get(chrome_path).open("stackoverflow.com")
+                break
             except:
                 speak("opening stackoverflow")
                 webbrowser.open("stackoverflow.com")
@@ -181,6 +181,7 @@ if __name__ == "__main__":
             try:
                 speak("opening facebook")
                 webbrowser.get(chrome_path).open("facebook.com")
+                break
             except:
                 speak("opening facebook")
                 webbrowser.open("facebook.com")
@@ -197,7 +198,7 @@ if __name__ == "__main__":
                 data = json.load(jsonObj)
                 i = 1
                  
-                speak('here are some top headlines..lets begin')
+                speak('here are some todays top headlines..lets begin')
                 print('''=============== NEWS OF INDIA ============''','\n')
                  
                 for article in data['articles']:
@@ -221,7 +222,7 @@ if __name__ == "__main__":
 
             
         elif "whats the time" in query or "time" in query:
-            strtime = datetime.datetime.now().strftime("%H:%M:%S:%p")
+            strtime = datetime.datetime.now().strftime("%H %M %p")
             speak("Sir the current time is")
             speak(strtime)
 
@@ -232,6 +233,7 @@ if __name__ == "__main__":
             except:
                 speak("Please Install VScode First!")
                 webbrowser.get(chrome_path).open("https://code.visualstudio.com//download")
+
 
         elif "who made you" in query or "who created you" in query:
             speak("I have been Created by B.Dinakar")
@@ -297,8 +299,6 @@ if __name__ == "__main__":
                 print ("No results")
 
         elif "temperature" in query or "todays temperature" in query:
-            speak("which place you want to know: ")
-            query =  takeCommand()
             client = wolframalpha.Client(wolframalphaAPI)
             res = client.query(query)
             try:
@@ -308,14 +308,11 @@ if __name__ == "__main__":
                 print("can't able to find your query")
 
         elif "calculate" in query:
-            speak("What you want to calculate")
-            query = takeCommand()
-            query = input()
             client = wolframalpha.Client(wolframalphaAPI)
             res = client.query(query)
             try:
-                print (next(res.results).text)
                 speak (next(res.results).text)
+                print (next(res.results).text) 
             except:
                 print ("I can only calculate mathematical problems")
 
