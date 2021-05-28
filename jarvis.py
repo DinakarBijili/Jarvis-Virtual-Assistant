@@ -116,9 +116,9 @@ if __name__ == "__main__":
             exit()
 
         elif 'search' in query:
+            query = query.replace('search','')
             try:
-                query = query.replace('search','')
-                webbrowser.get(chrome_path).open(query)
+                pywhatkit.search(query) 
             except:
                 webbrowser.open(query)
                 
