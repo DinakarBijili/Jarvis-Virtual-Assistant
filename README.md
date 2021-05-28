@@ -17,6 +17,8 @@ Python-AI-Virtual-Assistant 🧠 [![](https://forthebadge.com/images/badges/made
 * Arithmetic Calculations
 * And more... 
 
+ ![skills](https://user-images.githubusercontent.com/77189196/119957903-2167aa00-bfc0-11eb-987f-a406a18ea04c.png)
+
 
 ## Pyttsx3 
 
