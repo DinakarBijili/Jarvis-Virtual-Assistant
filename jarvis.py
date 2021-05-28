@@ -116,6 +116,7 @@ if __name__ == "__main__":
             exit()
 
         elif 'search' in query:
+            speak("Searching your query ") 
             query = query.replace('search','')
             try:
                 pywhatkit.search(query) 
