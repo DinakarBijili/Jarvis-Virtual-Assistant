@@ -94,7 +94,9 @@ Wolframalpha:- It is used to compute expert-level answers using Wolfram’s algo
 
     `pip install randfacts`
   
-  
+  ## OS
+  - The OS module in Python provides functions for interacting with the operating system. OS comes under Python’s standard utility modules. This module provides a portable way of using operating system dependent functionality. The *os* and *os.path* modules include many functions to interact with the file system.
+
 
 
 
