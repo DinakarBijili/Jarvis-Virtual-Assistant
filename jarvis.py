@@ -125,10 +125,11 @@ if __name__ == "__main__":
 
         elif 'play' in query or 'find' in query:
             song = query.replace('play', '')
-            speak('finding your query')
-            speak(song) 
-            pywhatkit.playonyt(song)
-
+            try:
+                speak(song) 
+                pywhatkit.playonyt(song)
+            except:
+                speak("Network issue. Check your internet connection") 
         elif 'wikipedia'in query:
             speak('Searching Wikipedia...')
             query =query.replace("wikipedia","")
