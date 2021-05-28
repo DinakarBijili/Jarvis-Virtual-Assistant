@@ -13,6 +13,7 @@ import wolframalpha # pip install wolframaplha
 import warnings
 import pywhatkit #pip install pwhatkit
 import randfacts # pip install randfacts
+import calendar
 
 
 warnings.filterwarnings('ignore')
@@ -131,6 +132,7 @@ if __name__ == "__main__":
                 pywhatkit.playonyt(song)
             except:
                 speak("Network issue. Check your internet connection") 
+
         elif 'wikipedia'in query:
             speak('Searching Wikipedia...')
             query =query.replace("wikipedia","")
@@ -225,7 +227,7 @@ if __name__ == "__main__":
             
         elif "whats the time" in query or "time" in query:
             strtime = datetime.datetime.now().strftime("%H %M %p")
-            speak("Sir the current time is")
+            speak("current time is")
             speak(strtime)
 
         elif "open vs code"  in query:
@@ -299,13 +301,15 @@ if __name__ == "__main__":
                 speak (next(res.results).text)
             except:
                 pywhatkit.info(query,lines=4) 
+                
+            
 
         elif "temperature" in query or "todays temperature" in query:
             client = wolframalpha.Client(wolframalphaAPI)
             res = client.query(query)
             try:
-                print(next(res.result).text)
-                speak(next(res.result).text)
+                print (next(res.results).text)
+                speak (next(res.results).text)
             except:
                 print("can't able to find your query")
 
@@ -317,6 +321,14 @@ if __name__ == "__main__":
                 print (next(res.results).text) 
             except:
                 print ("I can only calculate mathematical problems")
+
+        elif "calender" in query or "open calender" in query: 
+            current_time = datetime.datetime.now()
+            year = current_time.year
+            month = current_time.month
+            date = current_time.day
+            print(year,":",month,":",date , '\n')
+            print(calendar.month(year,month))
 
         elif "thanks" in query:
             speak("its my pleasure.")
