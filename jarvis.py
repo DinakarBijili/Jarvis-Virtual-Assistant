@@ -298,7 +298,7 @@ if __name__ == "__main__":
                 print (next(res.results).text)
                 speak (next(res.results).text)
             except:
-                print ("No results")
+                pywhatkit.info(query,lines=4) 
 
         elif "temperature" in query or "todays temperature" in query:
             client = wolframalpha.Client(wolframalphaAPI)
