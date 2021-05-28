@@ -85,6 +85,8 @@ Wolframalpha:- It is used to compute expert-level answers using Wolfram’s algo
  - **Installation**:
 
    `pip install requests`
+  ## JSON 
+  - JavaScript Object Notation (JSON) is a standardized format commonly used to transfer data as text that can be sent over a network. It's used by lots of APIs and Databases, and it's easy for both humans and machines to read. JSON represents objects as name/value pairs, just like a Python dictionary
   
   
   
