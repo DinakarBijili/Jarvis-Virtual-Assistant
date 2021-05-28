@@ -7,14 +7,15 @@ Python-AI-Virtual-Assistant 🧠 [![](https://forthebadge.com/images/badges/made
 
 # Project description
  Jarvis is a  virtual assistant capable of conversation, following basic commands and used to automate your tasks like. 
-* Search anything on google or YouTube. 
-* plays music. 
-* Tells latest news from Times of India. 
+* Weather forecast. 
+* plays multiple files like audio songs and video songs. 
+* Tells latest news of India. 
+* Open Applications such as Web browsers, Media players(like vlc), text editors, etc
 * Finds any Location. 
 * Tells jokes and facts.
-* it can Search on Wikipedia via voice command
+* it can Search on Wikipedia via voice command.
+* Arithmetic Calculations
 * And more... 
-
 
 
 ## Pyttsx3 
