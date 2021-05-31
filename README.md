@@ -10,7 +10,7 @@ Jarvis-AI-Virtual-Assistant 🧠 [![](https://forthebadge.com/images/badges/made
 * Weather forecast. 
 * plays multiple files like audio songs and video songs. 
 * Tells latest news of India. 
-* Open Applications such as Web browsers, Media players , text editors, etc
+* Open Applications such as Web browsers, text editors, etc
 * Finds any Location. 
 * Tells jokes and facts.
 * it can Search on Wikipedia via voice command.
