@@ -1,4 +1,4 @@
-import pyttsx3
+import pyttsx3 # pip install pyttsx3
 import randfacts #pip install pyttsx3
 import speech_recognition as sr #pip install speachRecognition
 import datetime
@@ -266,7 +266,7 @@ if __name__ == "__main__":
 
         elif 'shutdown system' in query:
             speak("Hold on a Sec ! Your system on its way to shutdown")
-            subprocess.call('shutdown/p/f')
+            os.system("shutdown /s /t 1")
 
         elif 'restart system' in query:
             subprocess.call(["shutdown", "/r"])
